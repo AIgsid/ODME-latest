@@ -4,8 +4,10 @@
 
 * [Overview](#overview)
 * [Key Features](#key-features)
+* [Quick Start](#quick-start)
 * [Getting Started](#getting-started)
 * [Example: Runway Sign Classifier](#example-runway-sign-classifier)
+* [Example: ScenAIroTableII Automated Scenarios](#example-scenairotableii-automated-scenarios)
 * [Workflow](#workflow)
 * [Architecture](#architecture)
 * [Contributing](#contributing)
@@ -36,6 +38,25 @@ The tool supports the AI Learning Assurance workflow defined in the **EASA AI Ro
 | **CAMEO Import Plugin** | Import SysML operational scenarios from CAMEO into ODME | Work in Progress |
 | **Scripting Add-On** | Translate scenarios to executable Python scripts for simulation | Work in Progress |
 
+## Quick Start
+
+New to ODME? Use this path:
+
+1. Get ODME:
+   - download a packaged app from GitHub Releases when a tagged release is available, or
+   - build from source with Maven using the steps below
+2. Launch ODME and open an example project:
+   - `examples/RunwaySignClassifier` for a smaller SES/ODD example
+   - `examples/ScenAIroTableII` for automatic scenario generation and scenario exports
+3. In **Domain Modeling**, inspect the SES tree, graph, variables, constraints, and distributions.
+4. Switch to **Scenario Modelling** to prune the model manually or use **Scenario Manager -> Scenarios List -> Automatic Scenario Generation**.
+5. Review generated scenarios in the Scenario List, open them in the scenario editor, and inspect:
+   - scenario XML in `xmlforxsd.xml`
+   - sampled variable values in `.ssdvar`
+   - exported XML copies and summary CSV in `ScenarioExports/`
+
+For a first-time walkthrough, see [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
+
 ## Getting Started
 
 ### Prerequisites
@@ -46,11 +67,13 @@ The tool supports the AI Learning Assurance workflow defined in the **EASA AI Ro
 ### Build and Run
 
 ```bash
-git clone https://github.com/umutdurak/ODME.git
-cd ODME
+git clone https://github.com/AIgsid/ODME-latest.git
+cd ODME-latest
 mvn clean package -DskipTests
 java -jar target/SESEditor-2.0.0-SNAPSHOT.jar
 ```
+
+Packaged desktop builds are produced by GitHub Actions for Windows, Linux, and macOS. If you want the native app instead of the JAR, see the latest release assets or the packaging notes in [`launcher/README-packaging.md`](launcher/README-packaging.md).
 
 ### Run Tests
 
