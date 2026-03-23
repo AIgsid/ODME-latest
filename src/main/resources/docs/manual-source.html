@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ODME First-Time User Guide</title>
+  <style>
+    @page {
+      margin: 18mm 16mm;
+      size: A4;
+    }
+
+    :root {
+      --ink: #173042;
+      --muted: #4f6473;
+      --accent: #0a7d5a;
+      --accent-soft: #e6f4ef;
+      --border: #d8e0e8;
+      --panel: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.5;
+      font-size: 11pt;
+      margin: 0;
+      background: white;
+    }
+
+    h1, h2, h3 {
+      color: var(--ink);
+      margin: 0 0 8px;
+      page-break-after: avoid;
+    }
+
+    h1 {
+      font-size: 26pt;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 16pt;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 6px;
+      margin-top: 28px;
+    }
+
+    h3 {
+      font-size: 12.5pt;
+      margin-top: 18px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul, ol {
+      margin: 0 0 12px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 0 0 6px;
+    }
+
+    .cover {
+      min-height: 250mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+    }
+
+    .brand {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 10pt;
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      padding-top: 24mm;
+    }
+
+    .subtitle {
+      font-size: 14pt;
+      color: var(--muted);
+      max-width: 150mm;
+    }
+
+    .meta {
+      border-top: 1px solid var(--border);
+      padding-top: 10mm;
+      color: var(--muted);
+      font-size: 10pt;
+    }
+
+    .note,
+    .tip,
+    .warning,
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 12px 0 16px;
+      page-break-inside: avoid;
+    }
+
+    .note {
+      background: #f4f8fb;
+    }
+
+    .tip {
+      background: var(--accent-soft);
+    }
+
+    .warning {
+      background: #fff5e8;
+      border-color: #f1d29f;
+    }
+
+    .panel {
+      background: var(--panel);
+    }
+
+    .checklist li {
+      margin-bottom: 8px;
+    }
+
+    .mode-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px;
+      font-size: 10.5pt;
+    }
+
+    .mode-table th,
+    .mode-table td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .mode-table th {
+      background: var(--panel);
+      font-size: 10pt;
+    }
+
+    .toc {
+      margin-top: 12px;
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .toc li {
+      break-inside: avoid;
+    }
+
+    .small {
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    figure {
+      margin: 14px 0 18px;
+      page-break-inside: avoid;
+    }
+
+    figure img {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: block;
+      background: white;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 9.5pt;
+    }
+
+    .step {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="hero">
+      <div class="brand">ODME User Guide</div>
+      <h1>Operation Domain Modeling Environment</h1>
+      <p class="subtitle">
+        A first-time user guide for running the program, understanding the workflow,
+        and using the main modes without technical setup knowledge.
+      </p>
+      <div class="tip">
+        <strong>Who this guide is for:</strong> users who want to open ODME, create a project,
+        build a model, validate it, and move into scenario work without reading source code
+        or developer notes.
+      </div>
+    </div>
+
+    <div class="meta">
+      <p><strong>Product:</strong> Operation Domain Modeling Environment (ODME)</p>
+      <p><strong>Purpose:</strong> Domain modeling, scenario modeling, validation, and supporting analysis tools</p>
+      <p><strong>Recommended starting point:</strong> Domain Modelling mode</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contents</h2>
+    <ol class="toc">
+      <li>What ODME is</li>
+      <li>How to start the program</li>
+      <li>Main window layout</li>
+      <li>The recommended beginner workflow</li>
+      <li>Domain Modelling mode</li>
+      <li>Scenario Modelling mode</li>
+      <li>Other modes and tools</li>
+      <li>Saving, validation, and export</li>
+      <li>First practice session</li>
+      <li>Troubleshooting</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>1. What ODME Is</h2>
+    <p>
+      ODME is a desktop tool used to create and work with operation domain models and scenarios.
+      Most users will spend the majority of their time in two modes:
+    </p>
+    <ul>
+      <li><strong>Domain Modelling:</strong> create the full structure of a model</li>
+      <li><strong>Scenario Modelling:</strong> turn the model into scenario-specific versions</li>
+    </ul>
+    <p>
+      The application also includes additional tools for behavior synchronization,
+      scenario management, execution support, ODD work, and import from Cameo.
+    </p>
+    <div class="warning">
+      <strong>Important:</strong> some of the supporting tools are still marked as work in progress.
+      If you are new to ODME, begin with Domain Modelling and Scenario Modelling first.
+    </div>
+  </section>
+
+  <section>
+    <h2>2. How to Start the Program</h2>
+
+    <h3>Windows</h3>
+    <ol>
+      <li>Open the folder that contains the packaged ODME application.</li>
+      <li>Open the <strong>ODME</strong> folder.</li>
+      <li>Double-click <strong>ODME.exe</strong>.</li>
+    </ol>
+
+    <h3>macOS</h3>
+    <ol>
+      <li>Open the ODME package or disk image provided to you.</li>
+      <li>Open <strong>ODME.app</strong>.</li>
+    </ol>
+
+    <h3>Linux</h3>
+    <ol>
+      <li>Open the ODME application folder.</li>
+      <li>Run the <strong>ODME</strong> launcher inside the <strong>bin</strong> folder.</li>
+    </ol>
+
+    <div class="warning">
+      <strong>Keep the whole application folder together.</strong> Do not move only the executable file.
+      The program depends on other files next to it.
+    </div>
+
+    <div class="tip">
+      <strong>Best location:</strong> keep the ODME application in a folder where you have write permission,
+      such as Documents, Desktop, or Downloads.
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Main Window Layout</h2>
+    <p>When the program opens, you will see these main areas:</p>
+
+    <figure>
+      <img src="./images/odme-main-window.png" alt="Screenshot of the main ODME window">
+      <figcaption>
+        Main ODME window in Domain Modelling mode. The left side contains the project and structure trees,
+        the center contains the graph canvas, the right side contains the data panels, and the bottom area
+        contains the console and viewer tabs.
+      </figcaption>
+    </figure>
+
+    <div class="panel avoid-break">
+      <p><strong>Project Explorer</strong><br>Shows the current project and related files or modules.</p>
+      <p><strong>Model Structure</strong><br>Shows the model as a tree. This stays synchronized with the graph.</p>
+      <p><strong>Graph Canvas</strong><br>The main drawing area where you build and edit the model visually.</p>
+      <p><strong>Right-side Data Panels</strong><br>Show variables, behaviors, distributions, and constraints for the selected node.</p>
+      <p><strong>Console</strong><br>Shows validation messages and operation feedback.</p>
+      <p><strong>Viewer Tabs</strong><br>Show XML, schema, or ontology output depending on the mode.</p>
+      <p><strong>Status Bar</strong><br>Shows the current mode and contains the mode-switch button.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Recommended Beginner Workflow</h2>
+    <p>If this is your first time using ODME, follow this order:</p>
+    <ol class="checklist">
+      <li><span class="step">Step 1:</span> Start the program and stay in <strong>Domain Modelling</strong>.</li>
+      <li><span class="step">Step 2:</span> Create a new project.</li>
+      <li><span class="step">Step 3:</span> Build the basic domain structure on the graph canvas.</li>
+      <li><span class="step">Step 4:</span> Add variables, distributions, behaviors, and constraints as needed.</li>
+      <li><span class="step">Step 5:</span> Save the model and run validation.</li>
+      <li><span class="step">Step 6:</span> Switch to <strong>Scenario Modelling</strong>.</li>
+      <li><span class="step">Step 7:</span> Create or open a scenario.</li>
+      <li><span class="step">Step 8:</span> Prune the model and adjust scenario-specific values.</li>
+      <li><span class="step">Step 9:</span> Save or generate scenario outputs.</li>
+    </ol>
+    <div class="tip">
+      <strong>Simple rule:</strong> build the complete model first, then move to scenarios.
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Domain Modelling Mode</h2>
+    <p>
+      Domain Modelling is the main authoring mode. It is where you create the full model structure
+      before turning it into scenarios.
+    </p>
+
+    <h3>What you can do here</h3>
+    <ul>
+      <li>Create a new project</li>
+      <li>Open an existing project</li>
+      <li>Add entities, aspects, specializations, and multi-aspects</li>
+      <li>Edit the model tree and graph</li>
+      <li>Add variables and distributions</li>
+      <li>Add inter-entity and intra-entity constraints</li>
+      <li>Sync or inspect behaviors</li>
+      <li>Save and validate the model</li>
+      <li>Export the model as a template</li>
+      <li>Import from a template or from Cameo</li>
+    </ul>
+
+    <h3>Main toolbar actions</h3>
+    <ul>
+      <li>Selector</li>
+      <li>Add Entity</li>
+      <li>Add Aspect</li>
+      <li>Add Specialization</li>
+      <li>Add Multi-Aspect</li>
+      <li>Delete Node</li>
+      <li>Save Graph</li>
+      <li>Undo / Redo</li>
+      <li>Zoom In / Zoom Out</li>
+      <li>Validation</li>
+    </ul>
+
+    <h3>Typical menu actions</h3>
+    <ul>
+      <li><strong>Domain Modelling &gt; New Project</strong></li>
+      <li><strong>Domain Modelling &gt; Open</strong></li>
+      <li><strong>Domain Modelling &gt; Import Template</strong></li>
+      <li><strong>Domain Modelling &gt; Save as Template</strong></li>
+      <li><strong>Domain Modelling &gt; Import From Cameo</strong></li>
+    </ul>
+
+    <div class="note">
+      <strong>Tip for first-time users:</strong> start by drawing the structure. Add variables and constraints after the structure is stable.
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Scenario Modelling Mode</h2>
+    <p>
+      Scenario Modelling is used after the domain model is ready. It lets you work with scenario-specific
+      versions of the model.
+    </p>
+
+    <h3>How to switch into it</h3>
+    <p>Use the mode-switch button in the status bar at the bottom of the main window.</p>
+
+    <h3>What changes in this mode</h3>
+    <ul>
+      <li>Node creation actions are reduced</li>
+      <li>The interface focuses more on scenario output and XML</li>
+      <li>Scenario files and folders are created</li>
+      <li>You can prune the model for specific scenarios</li>
+    </ul>
+
+    <h3>What you can do here</h3>
+    <ul>
+      <li>Create and save scenarios</li>
+      <li>Open scenarios from the scenario list</li>
+      <li>Edit scenario-specific values</li>
+      <li>Generate scenarios from CSV data</li>
+      <li>Generate scenarios directly from the domain model</li>
+    </ul>
+
+    <div class="tip">
+      <strong>Good practice:</strong> if something feels wrong in Scenario Modelling,
+      switch back and verify the base model in Domain Modelling first.
+    </div>
+  </section>
+
+  <section>
+    <h2>7. Other Modes and Supporting Tools</h2>
+
+    <table class="mode-table">
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>What it is for</th>
+          <th>Advice for first-time users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Behavior Modelling</td>
+          <td>Sync or work with behavior-related data for entities.</td>
+          <td>Use after you are comfortable with domain and scenario workflows.</td>
+        </tr>
+        <tr>
+          <td>Operation Design Domain</td>
+          <td>Generate and manage ODD information based on the model.</td>
+          <td>Useful later in the workflow. Not required for first use.</td>
+        </tr>
+        <tr>
+          <td>Scenario Manager</td>
+          <td>Open scenario lists, execution helpers, feedback functions, and sample generation.</td>
+          <td>Use after you already have a working model or scenario.</td>
+        </tr>
+        <tr>
+          <td>Import From Cameo</td>
+          <td>Build a project from a set of required Cameo CSV files.</td>
+          <td>Only use if you already have the expected input files.</td>
+        </tr>
+        <tr>
+          <td>Execution</td>
+          <td>Load XML or YAML, translate content, edit Python scripts, and run scripts.</td>
+          <td>Treat this as an advanced downstream tool.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning">
+      Several supporting areas are still evolving. For reliable first use, stay focused on:
+      <strong>Domain Modelling</strong> and <strong>Scenario Modelling</strong>.
+    </div>
+  </section>
+
+  <section>
+    <h2>8. Saving, Validation, and Export</h2>
+
+    <h3>Saving</h3>
+    <p>Use the toolbar save action or the file menu to save the current project state.</p>
+
+    <h3>Validation</h3>
+    <p>
+      Use the <strong>Validation</strong> toolbar button to check the generated model output.
+      ODME will save, rebuild the XML and schema data, validate the result, and print details in the console.
+    </p>
+
+    <h3>Save as Template</h3>
+    <p>
+      Use <strong>Domain Modelling &gt; Save as Template</strong> to export the model as XML for reuse.
+    </p>
+
+    <h3>Save as PNG</h3>
+    <p>
+      Use <strong>File &gt; Save as PNG</strong> to export the visible graph as an image.
+    </p>
+
+    <div class="note">
+      ODME now shows progress dialogs for longer validation and generation tasks.
+      This means the window should stay responsive while these tasks run.
+    </div>
+  </section>
+
+  <section>
+    <h2>9. First Practice Session</h2>
+    <p>If you want a short introduction session, do this:</p>
+    <ol>
+      <li>Start ODME.</li>
+      <li>Create a new project.</li>
+      <li>Add a few nodes in Domain Modelling.</li>
+      <li>Select different nodes and watch the panels on the right change.</li>
+      <li>Save the model.</li>
+      <li>Run Validation.</li>
+      <li>Switch to Scenario Modelling.</li>
+      <li>Open the scenario list.</li>
+      <li>Create or generate one scenario.</li>
+      <li>Inspect the XML viewer and console output.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>10. Troubleshooting</h2>
+
+    <h3>The program does not open</h3>
+    <ul>
+      <li>Make sure you are opening the application from its full packaged folder.</li>
+      <li>Do not move only the executable by itself.</li>
+      <li>If you are running the jar directly, make sure Java is installed.</li>
+    </ul>
+
+    <h3>The program cannot save files</h3>
+    <ul>
+      <li>Move the application to a writable folder.</li>
+      <li>Avoid system folders such as Program Files unless you know you have write permission.</li>
+    </ul>
+
+    <h3>Validation or generation takes time</h3>
+    <ul>
+      <li>This can be normal for larger models.</li>
+      <li>Wait for the progress dialog to finish.</li>
+      <li>Do not close the program while a long operation is running.</li>
+    </ul>
+
+    <h3>A supporting feature feels incomplete</h3>
+    <ul>
+      <li>Return to the core workflow.</li>
+      <li>Build and validate the model first.</li>
+      <li>Use advanced tools only after the core model is stable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>11. Final Advice</h2>
+    <p>
+      The easiest way to learn ODME is to treat it as a two-stage process:
+    </p>
+    <ol>
+      <li>Create and validate the full structure in <strong>Domain Modelling</strong>.</li>
+      <li>Create and refine use-case-specific versions in <strong>Scenario Modelling</strong>.</li>
+    </ol>
+    <p>
+      If you stay with that sequence, the rest of the application will make more sense.
+    </p>
+  </section>
+</body>
+</html>
