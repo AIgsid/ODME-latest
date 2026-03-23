@@ -185,6 +185,13 @@ cp -r examples/RunwaySignClassifier .
 # Launch ODME → File → Open → select RunwaySignClassifier
 ```
 
+Large generated examples can be used the same way:
+
+```bash
+cp -r examples/ScenAIroTableII .
+# Launch ODME -> File -> Open -> select ScenAIroTableII
+```
+
 To create a new example:
 1. Build the SES tree in ODME with entities, specializations, and aspects
 2. Attach variables with `type`, `min`, `max` values to leaf entities

@@ -83,6 +83,24 @@ cp -r examples/RunwaySignClassifier .
 
 See [`examples/RunwaySignClassifier/README.md`](examples/RunwaySignClassifier/README.md) for the complete variable catalog.
 
+## Example: ScenAIroTableII Automated Scenarios
+
+ODME also ships with a larger scenario-generation example built around the
+`ScenAIroTableII` runway detection project. It includes:
+
+- the source domain model and `InitScenario`
+- **5,400** pre-generated `AutoScenario_*` scenario folders
+- scenario-manager support for open, delete, refresh, and export flows
+- constrained LHS sampled variables stored with each generated scenario
+
+To try it:
+```bash
+cp -r examples/ScenAIroTableII .
+# Launch ODME -> File -> Open -> select ScenAIroTableII
+```
+
+See [`examples/ScenAIroTableII/README.md`](examples/ScenAIroTableII/README.md) for usage notes and export details.
+
 ## Workflow
 
 This repository uses GitHub Actions to automate build, testing, and release:

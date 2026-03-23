@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<entity xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="ScenAIroRunwayDetectionDataset" xsi:noNamespaceSchemaLocation="ses.xsd">
+<aspect name="ScenarioParametersDec">
+<entity name="StaticEnvironmentalConditions">
+<aspect name="StaticEnvironmentalConditionsDec">
+<entity name="Scenery">
+<entity name="FarmlandNearAirport"/>
+</entity>
+<entity name="Airport">
+<entity name="LilleLFQQ"/>
+</entity>
+<entity name="RunwayConfiguration">
+<entity name="LightsAtNight"/>
+</entity>
+<entity name="SurfaceType">
+<entity name="Concrete"/>
+</entity>
+</aspect>
+</entity>
+<entity name="DynamicElements">
+<aspect name="DynamicElementsDec">
+<entity name="WeatherObjects">
+<entity name="Clouds"/>
+</entity>
+</aspect>
+</entity>
+<entity name="OperationalConditions">
+<aspect name="OperationalConditionsDec">
+<entity name="FlightParameters">
+<var default="ILSLanding" name="OperationMode" type="string"/>
+<var default="5.2761961424134265" lower="0.1" name="DistanceToRunwayKm" type="double" upper="5.56"/>
+<var default="3.191485739801127" lower="2.2" name="VerticalAngleDeg" type="double" upper="3.8"/>
+<var default="-0.20429271756294698" lower="-4.0" name="LateralDeviationDeg" type="double" upper="4.0"/>
+<var default="aligned" name="Azimuth" type="string"/>
+<var default="0.0" lower="0.0" name="PitchDeg" type="double" upper="0.0"/>
+<var default="0.0" lower="0.0" name="RollDeg" type="double" upper="0.0"/>
+<var default="1.0" lower="1.0" name="StartOffsetBeforeSunriseH" type="double" upper="1.0"/>
+<var default="1.0" lower="1.0" name="EndOffsetAfterSunsetH" type="double" upper="1.0"/>
+<var default="30" lower="30" name="TimeStepMinutes" type="int" upper="30"/>
+<var default="EarlySpring" name="TimeOfYear" type="string"/>
+</entity>
+</aspect>
+</entity>
+<entity name="EnvironmentalConditions">
+<aspect name="EnvironmentalConditionsDec">
+<entity name="LightAndWeather">
+<entity name="Clear"/>
+</entity>
+</aspect>
+</entity>
+</aspect>
+</entity>

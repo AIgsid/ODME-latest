@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<entity xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ses.xsd" name="ScenAIroRunwayDetectionDataset">
+<aspect name="ScenarioParametersDec">
+<entity name="StaticEnvironmentalConditions">
+<aspect name="StaticEnvironmentalConditionsDec">
+<entity name="Scenery">
+<entity name="UrbanIndustrialZones">
+</entity>
+</entity>
+<entity name="Airport">
+<entity name="MunichEDDM">
+</entity>
+</entity>
+<entity name="RunwayConfiguration">
+<entity name="LightsAtNight">
+</entity>
+</entity>
+<entity name="SurfaceType">
+<entity name="Concrete">
+</entity>
+</entity>
+</aspect>
+</entity>
+<entity name="DynamicElements">
+<aspect name="DynamicElementsDec">
+<entity name="WeatherObjects">
+<entity name="HeavyRain">
+</entity>
+</entity>
+</aspect>
+</entity>
+<entity name="OperationalConditions">
+<aspect name="OperationalConditionsDec">
+<entity name="FlightParameters">
+<var name="OperationMode" type="string" default="ILSLanding"> </var>
+<var name="DistanceToRunwayKm" type="double" default="0.3836452316085105" lower="0.1" upper="5.56"> </var>
+<var name="VerticalAngleDeg" type="double" default="2.9433211496993277" lower="2.2" upper="3.8"> </var>
+<var name="LateralDeviationDeg" type="double" default="2.2259410724382747" lower="-4.0" upper="4.0"> </var>
+<var name="Azimuth" type="string" default="aligned"> </var>
+<var name="PitchDeg" type="double" default="0.0" lower="0.0" upper="0.0"> </var>
+<var name="RollDeg" type="double" default="0.0" lower="0.0" upper="0.0"> </var>
+<var name="StartOffsetBeforeSunriseH" type="double" default="1.0" lower="1.0" upper="1.0"> </var>
+<var name="EndOffsetAfterSunsetH" type="double" default="1.0" lower="1.0" upper="1.0"> </var>
+<var name="TimeStepMinutes" type="int" default="30" lower="30" upper="30"> </var>
+<var name="TimeOfYear" type="string" default="EarlySpring"> </var>
+</entity>
+</aspect>
+</entity>
+<entity name="EnvironmentalConditions">
+<aspect name="EnvironmentalConditionsDec">
+<entity name="LightAndWeather">
+<entity name="Sunrise">
+</entity>
+</entity>
+</aspect>
+</entity>
+</aspect>
+</entity>
