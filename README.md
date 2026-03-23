@@ -103,12 +103,14 @@ See [`examples/ScenAIroTableII/README.md`](examples/ScenAIroTableII/README.md) f
 
 ## Workflow
 
-This repository uses GitHub Actions to automate build, testing, and release:
+This repository uses GitHub Actions to automate build, testing, packaging, and release:
 
-1. **Build and Test**: Compiles with Maven, runs unit tests with JaCoCo coverage
-2. **Static Analysis**: SpotBugs + Checkstyle quality gates on `odme.domain.*` packages
-3. **Publish Artifact**: Stages the built JAR and uploads it as a package
-4. **Automate Release**: Creates a GitHub release based on the uploaded artifact
+1. **Build and Test**: Compiles with Maven, runs unit tests with JaCoCo coverage, PIT, SpotBugs, and Checkstyle
+2. **Native Packaging CI**: Builds Windows, Linux, and macOS app images and performs smoke tests on each platform
+3. **Security Automation**: Runs CodeQL scanning, dependency review on pull requests, and Dependabot updates for Maven and GitHub Actions
+4. **Release Automation**: On version tags (`v*`), publishes Windows, Linux, and macOS release assets, plus SBOM and SHA-256 checksums
+
+See [`launcher/README-packaging.md`](launcher/README-packaging.md) for native packaging details and required signing secrets.
 
 ## Architecture
 

@@ -7,6 +7,9 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -139,6 +142,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Install Linux smoke test dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+
       - name: Make launcher scripts executable
         if: runner.os != 'Windows'
         run: chmod +x launcher/*.sh
@@ -155,6 +164,45 @@ jobs:
       - name: Build macOS app bundle
         if: runner.os == 'macOS'
         run: ./launcher/build-macos-app.sh
+
+      - name: Smoke test Windows app image
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $proc = Start-Process -FilePath .\dist\ODME\ODME.exe -PassThru
+          Start-Sleep -Seconds 15
+          if ($proc.HasExited) {
+            throw "Windows app image exited before the smoke-test timeout."
+          }
+          Stop-Process -Id $proc.Id -Force
+
+      - name: Smoke test Linux app image
+        if: runner.os == 'Linux'
+        run: |
+          xvfb-run -a ./dist/ODME/bin/ODME >odme-linux.log 2>&1 &
+          APP_PID=$!
+          sleep 15
+          if ! kill -0 "$APP_PID" 2>/dev/null; then
+            cat odme-linux.log
+            echo "Linux app image exited before the smoke-test timeout."
+            exit 1
+          fi
+          kill "$APP_PID"
+          wait "$APP_PID" || true
+
+      - name: Smoke test macOS app bundle
+        if: runner.os == 'macOS'
+        run: |
+          ./dist/ODME.app/Contents/MacOS/ODME >odme-macos.log 2>&1 &
+          APP_PID=$!
+          sleep 15
+          if ! kill -0 "$APP_PID" 2>/dev/null; then
+            cat odme-macos.log
+            echo "macOS app bundle exited before the smoke-test timeout."
+            exit 1
+          fi
+          kill "$APP_PID"
+          wait "$APP_PID" || true
 
       - name: Upload native artifact
         uses: actions/upload-artifact@v4
